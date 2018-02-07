@@ -342,6 +342,11 @@
         default: false
       },
 
+      removeButton: {
+          type: Boolean,
+          default: true,
+      },
+
       /**
        * Sets the id of the input element.
        * @type {String}
@@ -743,6 +748,10 @@
        * @return {Boolean}
        */
       showClearButton() {
+        if (!this.removeButton) {
+            return false;
+        }
+
         return !this.multiple && !this.open && this.mutableValue != null
       }
     },
